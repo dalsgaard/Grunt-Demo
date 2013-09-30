@@ -1,0 +1,5 @@
+{
+  "undef": true,
+  "predef": ["describe", "it", "before", "beforeEach", "after", "afterEach"],
+  "node": true
+}
