@@ -1,3 +1,5 @@
+/*jshint node:true */
+
 module.exports = function(grunt) {
 	
   grunt.initConfig({
@@ -16,6 +18,12 @@ module.exports = function(grunt) {
           jshintrc: 'test/.jshintrc'
         },
         src: 'test/**/*.js'
+      },
+      amd: {
+        options: {
+          jshintrc: 'amd/.jshintrc'
+        },
+        src: 'amd/**/*.js'
       },
       gruntfile: {
         options: {
@@ -55,9 +63,12 @@ module.exports = function(grunt) {
       demo: {
         expand: true,
         cwd: 'sass/',
-        src: ['*.scss'],
+        src: ['*.scss', '!_*.scss'],
         dest: 'public/',
-        ext: '.css'
+        ext: '.css',
+        options: {
+          sourcemap: true
+        }
       }
     },
 
@@ -66,8 +77,29 @@ module.exports = function(grunt) {
         //sourcesContent: true
       },
       files: {
-        src: ['src/*.js'],
+        src: ['src/foo/*.js'],
         dest: 'public/main.js'
+      }
+    },
+
+    requirejs: {
+      options: {
+        baseUrl: "amd",
+        uglify: {
+          beautify: true
+        }
+      },
+      c_opt: {
+        options: {
+          name: "c",
+          out: "public/c_opt.js",
+        }
+      },
+      e_opt: {
+        options: {
+          name: "e",
+          out: "public/e_opt.js"
+        }
       }
     },
 
@@ -98,12 +130,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-concat-sourcemap');
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-  grunt.registerTask('lint', ['jshint:source', 'jshint:test', 'jshint:gruntfile']);
+  grunt.registerTask('lint', ['jshint:amd', 'jshint:source', 'jshint:test', 'jshint:gruntfile']);
   grunt.registerTask('test', ['mochaTest']);
   grunt.registerTask('dev', ['lint', 'test']);
   grunt.registerTask('demo', ['concat_sourcemap']);
-  grunt.registerTask('build', ['concat', 'jshint:build']);
+  grunt.registerTask('build', ['concat_sourcemap', 'jshint:build']);
 
   grunt.registerTask('default', ['dev']);
 

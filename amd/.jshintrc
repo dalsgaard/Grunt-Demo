@@ -6,5 +6,8 @@
   "latedef": true,
 
   "browser": true,
-  "devel": true
+  "devel": true,
+  "globals": {
+    "define": false
+  }
 }

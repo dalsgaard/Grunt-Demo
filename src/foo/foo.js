@@ -1,5 +1,3 @@
-
-//console.log('Bar!');
 /*jshint node:true */
 
 function Foo(foo) {
@@ -8,5 +6,3 @@ function Foo(foo) {
 
 exports.Foo = Foo;
 
-
-//@ sourceMappingURL=main.js.map

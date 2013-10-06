@@ -2,9 +2,9 @@
   "version": 3,
   "file": "main.js",
   "sources": [
-    "src/bar.js",
-    "src/foo.js"
+    "src/foo/bar.js",
+    "src/foo/foo.js"
   ],
   "names": [],
-  "mappings": "AAAA;AACA,sB;ACDA;AACA;AACA;A"
+  "mappings": "AAAA;AACA,sB;ACDA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;A"
 }

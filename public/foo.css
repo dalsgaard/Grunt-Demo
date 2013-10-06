@@ -1,4 +1,9 @@
+.baz {
+  color: red; }
+
 .foo {
   background-color: green; }
   .foo .bar {
     color: yellow; }
+
+/*# sourceMappingURL=foo.css.map */
