@@ -83,23 +83,12 @@ module.exports = function(grunt) {
     },
 
     requirejs: {
-      options: {
-        baseUrl: "amd",
-        uglify: {
-          beautify: true
-        }
-      },
-      c_opt: {
+      foo: {
         options: {
-          name: "c",
-          out: "public/c_opt.js",
-        }
-      },
-      e_opt: {
-        options: {
-          name: "e",
-          out: "public/e_opt.js"
-        }
+          dir: "./build/",
+          baseUrl: "amd/src",
+          modules: grunt.file.readJSON('amd/build.json').modules
+        },
       }
     },
 
@@ -109,6 +98,7 @@ module.exports = function(grunt) {
         tasks: ['dev'],
         options: {
           spawn: false
+          
         }
       },
       jade: {

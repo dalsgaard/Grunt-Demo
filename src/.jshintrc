@@ -1,10 +1,22 @@
 {
+  /*
+    Declarations with var: Always (+)
+   */
   "undef": true,
-  "unused": true,
-  "curly": true,
-  "eqeqeq": true,
-  "latedef": true,
 
-  "browser": true,
-  "devel": true
+  /*
+   Use NAMES_LIKE_THIS for constant values. (-)
+   */
+  "camelcase": true,
+
+  /*
+   Always use semicolons.
+   */
+  "asi": false,
+
+  /*
+   Use only spaces, and indent 2 spaces at a time.
+   */
+  "indent": 2
+
 }
